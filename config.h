@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 #include "push.c"
+#include "gaplessgrid.c"
 #include <X11/XF86keysym.h>
 #include "colours/sola_dark.h"
 /* appearance */
@@ -27,9 +28,10 @@ static const Bool resizehints = False; /* True means respect size hints in tiled
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
+	{ "",      gaplessgrid},
 };
 
 /* key definitions */
@@ -81,6 +83,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
