@@ -3,6 +3,9 @@
 #include "gaplessgrid.c"
 #include <X11/XF86keysym.h>
 #include "colours/sola_dark.h"
+#include "bstack.c"
+#include "bstackhoriz.c"
+
 /* appearance */
 static const char font[]            = "-*-stlarch-*-*-*-*-10-*-*-*-*-*-*-*" "," "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -32,6 +35,9 @@ static const Layout layouts[] = {
 	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "",      monocle },
 	{ "",      gaplessgrid},
+	{ "",      bstack },
+	{ "",      bstackhoriz },
+
 };
 
 /* key definitions */
@@ -84,6 +90,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
